@@ -1,0 +1,56 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Sirion
+providerId: sirion
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+tags:
+- Contract Management
+- CLM
+- Enterprise
+- Rate Limiting
+- Quotas
+description: >-
+  Sirion does not publish public numeric rate limits for its Business API &
+  Integrations surface. Limits, quotas, and throughput are governed by the
+  per-tenant enterprise agreement and configuration rather than a documented
+  per-minute request cap. Sirion documents event-based and asynchronous
+  processing for high-volume replication (for example, streaming Contract
+  Requests to SAP Ariba), which implies queue-based backpressure rather than a
+  hard public throttle. Any specific numbers here are unknown / MODELED.
+notes: >-
+  No public rate-limit documentation is available (the API reference is gated
+  behind tenant authentication). Confirm concrete limits with Sirion for your
+  tenant. Clients should implement retry with exponential backoff and honor any
+  Retry-After header on 429 responses.
+sources:
+- https://www.sirion.ai/integrations/
+- https://www.sirion.ai/library/clm-platform/clm-with-enterprise-integrations/
+responseCodes:
+  throttled: 429
+limits:
+- name: Business API Requests
+  scope: tenant
+  metric: requests
+  limit: not published
+  notes: No public numeric request-rate limit; governed by enterprise agreement.
+- name: Webhook Delivery
+  scope: tenant
+  metric: events
+  limit: not published
+  notes: Event-based, asynchronous delivery with field-based filtering; volume tuned per tenant.
+- name: Async Replication Throughput
+  scope: tenant
+  metric: records
+  limit: not published
+  notes: Documented event-based/async processing for CDR replication implies queue-based backpressure.
+policies:
+- name: Asynchronous Processing
+  description: High-volume replication (e.g. Contract Requests to SAP Ariba) is event-based and asynchronous rather than synchronous request/response.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

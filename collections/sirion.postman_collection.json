@@ -1,0 +1,195 @@
+{
+  "info": {
+    "name": "Sirion CLM API (Modeled)",
+    "description": "MODELED representation of the Sirion (SirionLabs) CLM Business API & Integrations surface. NOT copied from an official public reference - Sirion's API reference is gated behind tenant authentication and access is enterprise/contract-provisioned. Authentication is OAuth 2.0 client credentials (CONFIRMED); the base host {{tenant}}.sirioncloud.com, the token URL, and all paths are MODELED. Replace {{tenant}} with your Sirion subdomain and set {{clientId}}/{{clientSecret}}.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      { "key": "grant_type", "value": "client_credentials", "type": "string" },
+      { "key": "accessTokenUrl", "value": "https://{{tenant}}.sirioncloud.com/oauth/token", "type": "string" },
+      { "key": "clientId", "value": "{{clientId}}", "type": "string" },
+      { "key": "clientSecret", "value": "{{clientSecret}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "tenant", "value": "your-org", "type": "string" },
+    { "key": "clientId", "value": "", "type": "string" },
+    { "key": "clientSecret", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Contracts",
+      "item": [
+        {
+          "name": "List contracts (MODELED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contracts?page=1&pageSize=25", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contracts"], "query": [ { "key": "page", "value": "1" }, { "key": "pageSize", "value": "25" } ] },
+            "description": "Lists contracts in the SirionOne repository. MODELED path."
+          }
+        },
+        {
+          "name": "Create a contract (MODELED)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"\",\n  \"counterparty\": \"\",\n  \"status\": \"draft\"\n}" },
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contracts", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contracts"] },
+            "description": "Creates a contract record. MODELED path and schema."
+          }
+        },
+        {
+          "name": "Retrieve a contract (MODELED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contracts/:contractId", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contracts", ":contractId"], "variable": [{ "key": "contractId", "value": "" }] },
+            "description": "Retrieves a contract by ID. MODELED path."
+          }
+        },
+        {
+          "name": "Update a contract (MODELED)",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contracts/:contractId", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contracts", ":contractId"], "variable": [{ "key": "contractId", "value": "" }] },
+            "description": "Updates a contract. MODELED path."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contract Requests",
+      "item": [
+        {
+          "name": "List contract requests (MODELED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contract-requests", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contract-requests"] },
+            "description": "Lists Contract Requests (CDRs). MODELED path."
+          }
+        },
+        {
+          "name": "Create a contract request (MODELED)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"\",\n  \"requestType\": \"\",\n  \"counterparty\": \"\"\n}" },
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contract-requests", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contract-requests"] },
+            "description": "Creates a Contract Request that drives intake/authoring workflow. MODELED path."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Metadata & Clauses",
+      "item": [
+        {
+          "name": "Get contract metadata (MODELED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contracts/:contractId/metadata", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contracts", ":contractId", "metadata"], "variable": [{ "key": "contractId", "value": "" }] },
+            "description": "Gets metadata fields for a contract. MODELED path."
+          }
+        },
+        {
+          "name": "Update contract metadata (MODELED)",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"fields\": {}\n}" },
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contracts/:contractId/metadata", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contracts", ":contractId", "metadata"], "variable": [{ "key": "contractId", "value": "" }] },
+            "description": "Updates contract metadata. MODELED path."
+          }
+        },
+        {
+          "name": "List AI-extracted clauses (MODELED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/contracts/:contractId/clauses", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["contracts", ":contractId", "clauses"], "variable": [{ "key": "contractId", "value": "" }] },
+            "description": "Lists AI-extracted clauses for a contract. MODELED path."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Obligations",
+      "item": [
+        {
+          "name": "List obligations (MODELED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/obligations?contractId=", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["obligations"], "query": [ { "key": "contractId", "value": "" } ] },
+            "description": "Lists contractual obligations and status. MODELED path."
+          }
+        },
+        {
+          "name": "Update obligation status (MODELED)",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"met\"\n}" },
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/obligations/:obligationId", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["obligations", ":obligationId"], "variable": [{ "key": "obligationId", "value": "" }] },
+            "description": "Updates an obligation. MODELED path."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Suppliers",
+      "item": [
+        {
+          "name": "List suppliers / counterparties (MODELED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/suppliers", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["suppliers"] },
+            "description": "Lists suppliers / counterparties. MODELED path."
+          }
+        },
+        {
+          "name": "Create a supplier / counterparty (MODELED)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"\"\n}" },
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/suppliers", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["suppliers"] },
+            "description": "Creates a supplier / counterparty. MODELED path."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "List webhook subscriptions (MODELED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/webhooks", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["webhooks"] },
+            "description": "Lists configured outbound webhook rules. MODELED path."
+          }
+        },
+        {
+          "name": "Create a webhook subscription (MODELED)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"url\": \"\",\n  \"event\": \"\",\n  \"filters\": []\n}" },
+            "url": { "raw": "https://{{tenant}}.sirioncloud.com/webhooks", "protocol": "https", "host": ["{{tenant}}", "sirioncloud", "com"], "path": ["webhooks"] },
+            "description": "Creates an outbound webhook subscription with field-based filtering. MODELED path."
+          }
+        }
+      ]
+    }
+  ]
+}

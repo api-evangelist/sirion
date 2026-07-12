@@ -1,0 +1,32 @@
+generated: '2026-07-12'
+method: documented
+source: >-
+  Sirion public product references (integrations page, release notes 2.84 /
+  2.86). The API reference itself is gated behind tenant authentication.
+summary:
+  types:
+  - oauth2
+schemes:
+- name: oauth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  scheme: bearer
+  description: >-
+    CONFIRMED: Sirion B2B APIs use the OAuth 2.0 client credentials grant. A
+    tenant administrator generates an OAuth Client Id and OAuth Client Secret
+    under Admin 2.0 -> Business API & Integrations (OAuth Client Setup, added in
+    release 2.84 with token permission configuration), and shares them with the
+    integration. The client exchanges them for an access token that is presented
+    as a Bearer token on API requests. MODELED: the exact token URL is
+    tenant-specific and not publicly documented; substitute your tenant's token
+    endpoint.
+  sources:
+  - https://www.sirion.ai/integrations/
+  - https://www.sirion.ai/library/whats-new/sirion-release-284/
+  - https://www.sirion.ai/library/whats-new/sirion-release-286/
+notes: >-
+  Access is enterprise / contract-gated. OAuth client credentials are
+  provisioned per tenant; there is no public self-service key issuance.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

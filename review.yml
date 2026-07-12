@@ -1,0 +1,107 @@
+aid: sirion
+name: Sirion
+review:
+  question: Does Sirion expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-12'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Sirion's integration surface is REST
+    (SirionOne is described as RESTful, and "any activity possible in the web
+    application is possible via the APIs") plus outbound webhooks. Webhooks are
+    server-to-endpoint HTTP POST callbacks - the client does not hold an open
+    WebSocket. No wss:// endpoint is documented on Sirion's own API, and the API
+    reference itself is gated behind tenant authentication, so no server-push
+    transport could be confirmed to model.
+findings:
+  summary: |
+    Sirion (SirionLabs) does not publish a documented public WebSocket API.
+    Sirion is an AI-native enterprise Contract Lifecycle Management (CLM)
+    platform (SirionOne). Its programmatic surface is a REST "Business API &
+    Integrations" capability secured with OAuth 2.0 client credentials, plus
+    pre-built connectors (Salesforce, SAP Ariba, SAP S/4HANA, DocuSign, iPaaS)
+    and configurable outbound webhooks with event-based, asynchronous
+    processing. API access is enterprise / contract-gated: OAuth client
+    credentials are provisioned per tenant by an admin, and the API reference is
+    available only to authenticated Sirion users (docs.sirion.ai is login-walled
+    and returns "This content is available only to authenticated Sirion users").
+    No realtime bidirectional WebSocket (ws:// or wss://) endpoint is documented
+    anywhere in Sirion's public materials.
+  accessModel: |
+    Enterprise / contact-sales. There is no public self-service developer signup
+    and no public pricing. A tenant administrator generates an OAuth Client Id
+    and OAuth Client Secret under Admin 2.0 -> Business API & Integrations
+    (OAuth Client Setup) to authorize B2B API calls. The API reference and help
+    guide are reached from inside the tenant application (My Account ->
+    Resources -> Help Guide) and at docs.sirion.ai behind login.
+  confirmed:
+    - SirionOne is RESTful; any activity possible in the web app is possible via the APIs.
+    - Authentication is OAuth 2.0 client credentials (OAuth Client Id + OAuth Client Secret) for Sirion B2B APIs.
+    - Admin 2.0 contains a "Business API & Integrations" group (renamed from "Integration" in release 2.86).
+    - Configurable outbound webhooks with filtering on static and custom single/multi-select fields.
+    - Event-based and asynchronous processing for replicating Contract Requests (CDRs) to systems like SAP Ariba.
+    - Pre-built connectors and iPaaS support (Salesforce, SAP Ariba, SAP S/4HANA, DocuSign).
+    - Product entities include contracts, contract requests, metadata/clauses, obligations, and suppliers/counterparties.
+  modeled:
+    - All specific endpoint paths in openapi/sirion-openapi.yml (contracts, contract-requests, metadata, clauses, obligations, suppliers, webhooks).
+    - Request/response schemas.
+    - The OAuth token URL and the per-tenant API host (modeled on the confirmed product domain sirioncloud.com).
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: OAuth2 client-credentials REST "Business API & Integrations". Per-tenant host on sirioncloud.com; exact paths gated.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Outbound HTTP POST callbacks with field-based filtering. Server-to-endpoint, not a client WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in any public Sirion material as of the review date.
+  endpointsConfirmedRest: []
+  endpointsModeledRest:
+    - GET    https://{tenant}.sirioncloud.com/contracts
+    - POST   https://{tenant}.sirioncloud.com/contracts
+    - GET    https://{tenant}.sirioncloud.com/contracts/{contractId}
+    - PATCH  https://{tenant}.sirioncloud.com/contracts/{contractId}
+    - GET    https://{tenant}.sirioncloud.com/contract-requests
+    - POST   https://{tenant}.sirioncloud.com/contract-requests
+    - GET    https://{tenant}.sirioncloud.com/contracts/{contractId}/metadata
+    - PATCH  https://{tenant}.sirioncloud.com/contracts/{contractId}/metadata
+    - GET    https://{tenant}.sirioncloud.com/contracts/{contractId}/clauses
+    - GET    https://{tenant}.sirioncloud.com/obligations
+    - PATCH  https://{tenant}.sirioncloud.com/obligations/{obligationId}
+    - GET    https://{tenant}.sirioncloud.com/suppliers
+    - POST   https://{tenant}.sirioncloud.com/suppliers
+    - GET    https://{tenant}.sirioncloud.com/webhooks
+    - POST   https://{tenant}.sirioncloud.com/webhooks
+sources:
+  - url: https://www.sirion.ai/integrations/
+    type: Documentation
+    note: REST APIs, no-code connectors, iPaaS, retry/monitoring; OAuth client credentials for Sirion B2B APIs.
+  - url: https://www.sirion.ai/library/clm-platform/clm-with-enterprise-integrations/
+    type: Documentation
+    note: Integration patterns - native connectors, middleware/iPaaS, event-based async processing.
+  - url: https://www.sirion.ai/library/whats-new/sirion-release-286/
+    type: ReleaseNotes
+    note: Renamed Integration group to Business API & Integrations; API documentation made available to users; webhook filtering on static/custom fields.
+  - url: https://www.sirion.ai/library/whats-new/sirion-release-284/
+    type: ReleaseNotes
+    note: OAuth Client Setup in Admin 2.0 with token permission configuration.
+  - url: https://docs.sirion.ai
+    type: APIReference
+    note: Login-walled - "This content is available only to authenticated Sirion users." Hosted on Document360.
+  - url: https://api.sap.com/package/SirionContractLifecycleManagementCLMIntegrationwithSAPAribaProcurement/overview
+    type: Integration
+    note: Contract Request (CDR) reaching a workflow stage triggers a SAP Ariba Contract Workspace; metadata/counterparty/documents kept consistent.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Sirion's own API is request/response
+    REST secured with OAuth 2.0 client credentials, plus outbound webhooks. No
+    AsyncAPI document was created because there is no documented server-push
+    (WebSocket/SSE) transport on Sirion's own API to model, and the API
+    reference is gated behind tenant authentication.

@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sirion CLM API (Modeled)",
+    "version": "1.0-modeled",
+    "description": "MODELED representation of the Sirion (SirionLabs) CLM Business API & Integrations surface. NOT copied from an official public reference - Sirion's API reference is gated behind tenant authentication and access is enterprise/contract-provisioned. Auth is OAuth 2.0 client credentials (CONFIRMED). Base host {tenant}.sirioncloud.com and all paths are MODELED."
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "oauth2": {
+        "grantType": "client_credentials",
+        "accessTokenUrl": "https://{{tenant}}.sirioncloud.com/oauth/token",
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Contracts", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List contracts (MODELED).", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.sirioncloud.com/contracts?page=1&pageSize=25" },
+          "docs": "Lists contracts in the SirionOne repository. MODELED path."
+        },
+        {
+          "info": { "name": "Create a contract (MODELED).", "type": "http" },
+          "http": { "method": "POST", "url": "https://{{tenant}}.sirioncloud.com/contracts", "body": { "type": "json", "data": "{\n  \"title\": \"\",\n  \"counterparty\": \"\",\n  \"status\": \"draft\"\n}" } },
+          "docs": "Creates a contract record. MODELED path and schema."
+        },
+        {
+          "info": { "name": "Retrieve a contract (MODELED).", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.sirioncloud.com/contracts/:contractId", "params": [ { "name": "contractId", "value": "", "type": "path", "description": "The ID of the contract." } ] },
+          "docs": "Retrieves a contract by ID. MODELED path."
+        },
+        {
+          "info": { "name": "Update a contract (MODELED).", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://{{tenant}}.sirioncloud.com/contracts/:contractId", "params": [ { "name": "contractId", "value": "", "type": "path", "description": "The ID of the contract." } ], "body": { "type": "json", "data": "{}" } },
+          "docs": "Updates a contract. MODELED path."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Contract Requests", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List contract requests (MODELED).", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.sirioncloud.com/contract-requests" },
+          "docs": "Lists Contract Requests (CDRs). MODELED path."
+        },
+        {
+          "info": { "name": "Create a contract request (MODELED).", "type": "http" },
+          "http": { "method": "POST", "url": "https://{{tenant}}.sirioncloud.com/contract-requests", "body": { "type": "json", "data": "{\n  \"title\": \"\",\n  \"requestType\": \"\",\n  \"counterparty\": \"\"\n}" } },
+          "docs": "Creates a Contract Request that drives intake/authoring workflow. MODELED path."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Metadata & Clauses", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get contract metadata (MODELED).", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.sirioncloud.com/contracts/:contractId/metadata", "params": [ { "name": "contractId", "value": "", "type": "path", "description": "The ID of the contract." } ] },
+          "docs": "Gets metadata fields for a contract. MODELED path."
+        },
+        {
+          "info": { "name": "Update contract metadata (MODELED).", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://{{tenant}}.sirioncloud.com/contracts/:contractId/metadata", "params": [ { "name": "contractId", "value": "", "type": "path", "description": "The ID of the contract." } ], "body": { "type": "json", "data": "{\n  \"fields\": {}\n}" } },
+          "docs": "Updates contract metadata. MODELED path."
+        },
+        {
+          "info": { "name": "List AI-extracted clauses (MODELED).", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.sirioncloud.com/contracts/:contractId/clauses", "params": [ { "name": "contractId", "value": "", "type": "path", "description": "The ID of the contract." } ] },
+          "docs": "Lists AI-extracted clauses for a contract. MODELED path."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Obligations", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List obligations (MODELED).", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.sirioncloud.com/obligations?contractId=", "params": [ { "name": "contractId", "value": "", "type": "query", "description": "Filter obligations by contract." } ] },
+          "docs": "Lists contractual obligations and status. MODELED path."
+        },
+        {
+          "info": { "name": "Update obligation status (MODELED).", "type": "http" },
+          "http": { "method": "PATCH", "url": "https://{{tenant}}.sirioncloud.com/obligations/:obligationId", "params": [ { "name": "obligationId", "value": "", "type": "path", "description": "The ID of the obligation." } ], "body": { "type": "json", "data": "{\n  \"status\": \"met\"\n}" } },
+          "docs": "Updates an obligation. MODELED path."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Suppliers", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List suppliers / counterparties (MODELED).", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.sirioncloud.com/suppliers" },
+          "docs": "Lists suppliers / counterparties. MODELED path."
+        },
+        {
+          "info": { "name": "Create a supplier / counterparty (MODELED).", "type": "http" },
+          "http": { "method": "POST", "url": "https://{{tenant}}.sirioncloud.com/suppliers", "body": { "type": "json", "data": "{\n  \"name\": \"\"\n}" } },
+          "docs": "Creates a supplier / counterparty. MODELED path."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Webhooks", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List webhook subscriptions (MODELED).", "type": "http" },
+          "http": { "method": "GET", "url": "https://{{tenant}}.sirioncloud.com/webhooks" },
+          "docs": "Lists configured outbound webhook rules. MODELED path."
+        },
+        {
+          "info": { "name": "Create a webhook subscription (MODELED).", "type": "http" },
+          "http": { "method": "POST", "url": "https://{{tenant}}.sirioncloud.com/webhooks", "body": { "type": "json", "data": "{\n  \"url\": \"\",\n  \"event\": \"\",\n  \"filters\": []\n}" } },
+          "docs": "Creates an outbound webhook subscription with field-based filtering. MODELED path."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

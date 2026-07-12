@@ -1,0 +1,78 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Sirion
+providerId: sirion
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+tags:
+- Contract Management
+- CLM
+- Enterprise
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Sirion (SirionLabs) spend. Sirion is an enterprise SaaS CLM
+  platform sold on a custom, contact-sales basis; there is no public usage-based
+  API pricing. Cost is a negotiated annual platform subscription that typically
+  scales with contract volume, users/seats, modules, and AI capabilities, with
+  Business API & Integrations access included under the enterprise agreement
+  rather than metered separately in any publicly documented way. Because there
+  is no public price list, all monetary values are unknown and this view is not
+  reconciled - it captures the billing shape (enterprise subscription), not
+  rates.
+notes: >-
+  No public pricing or usage metering is documented. Treat API/webhook usage as
+  part of the platform subscription unless your contract states otherwise, and
+  confirm all cost drivers with Sirion sales / your account team.
+sources:
+- https://www.sirion.ai
+- https://www.sirion.ai/integrations/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: SirionLabs
+serviceCategory: Contract Lifecycle Management
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+meters:
+- name: platform_subscription
+  description: Negotiated annual SirionOne platform subscription (enterprise contract).
+  unit: contract
+  aggregation: sum
+  dimensions:
+  - account
+- name: contract_volume
+  description: Number of contracts managed - a common cost driver in enterprise CLM agreements (not publicly priced).
+  unit: contracts
+  aggregation: max
+  dimensions:
+  - account
+- name: users
+  description: Licensed users / seats - a common cost driver (not publicly priced).
+  unit: users
+  aggregation: max
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track platform subscription and any per-module or per-seat drivers via your Sirion account team; API access is generally bundled, not separately invoiced.
+- name: Allocation
+  description: Map the CLM subscription to legal / procurement cost centers by module and user group.
+- name: Optimization
+  description: Right-size modules, seats, and AI capabilities to actual usage; use included connectors/webhooks rather than custom integration builds where possible.
+- name: Accountability
+  description: Review the enterprise agreement annually against realized contract volume and adoption.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

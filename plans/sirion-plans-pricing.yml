@@ -1,0 +1,56 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Sirion
+providerId: sirion
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+tags:
+- Contract Management
+- CLM
+- Enterprise
+- Plans
+description: >-
+  Sirion (SirionLabs) is sold as an enterprise CLM platform on a
+  contact-sales / custom-contract basis. There is no public self-service pricing
+  and no published API price list. Commercial terms (platform subscription,
+  number of contracts / users / modules, AI capabilities, and integration /
+  API access) are negotiated per customer. API access is delivered through the
+  "Business API & Integrations" program under an existing enterprise agreement;
+  the API is not separately metered in any publicly documented way. All specific
+  amounts are unknown and MODELED as enterprise / contact-sales here.
+notes: >-
+  No public pricing page exists as of the review date. Verify all commercial
+  terms directly with Sirion sales. This entry is intentionally not reconciled.
+sources:
+- https://www.sirion.ai
+- https://www.sirion.ai/integrations/
+plans:
+- id: sirion-enterprise
+  name: Enterprise (Contact Sales)
+  type: enterprise
+  description: >-
+    Custom enterprise agreement covering the SirionOne CLM platform and its
+    Business API & Integrations access. Pricing, seats, contract volume,
+    modules, and API/webhook usage are negotiated per customer. Contact Sirion.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: SirionOne CLM Platform
+  - name: Business API & Integrations Access
+  - name: Pre-Built Connectors and iPaaS
+  - name: Configurable Webhooks
+  - name: Custom Terms and SLAs
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
