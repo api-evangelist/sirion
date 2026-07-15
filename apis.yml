@@ -149,6 +149,8 @@ apis:
     external systems (server-to-endpoint HTTP POST, not a client WebSocket).
     Webhook capability is confirmed; exact configuration paths are MODELED.
 common:
+- type: AgenticAccess
+  url: agentic-access/sirion-agentic-access.yml
 - type: Authentication
   url: authentication/sirion-authentication.yml
 - type: Website
