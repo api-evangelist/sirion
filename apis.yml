@@ -13,7 +13,20 @@ description: Sirion (SirionLabs) is an AI-native enterprise Contract Lifecycle
   provisioned per tenant and the API reference is available to authenticated
   Sirion users. Endpoint paths and schemas in this entry are MODELED from public
   product references, not copied from a public reference document.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sirion.png
 tags:
 - Contract Management
 - Contract Lifecycle Management
@@ -29,125 +42,114 @@ created: '2026-07-12'
 modified: '2026-07-12'
 specificationVersion: '0.19'
 apis:
-- aid: sirion:sirion-contracts-api
-  name: Sirion Contracts API
-  tags:
-  - Contracts
-  - Agreements
-  - Repository
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.sirion.ai/integrations/
-  baseURL: https://{tenant}.sirioncloud.com
-  properties:
-  - url: https://www.sirion.ai/integrations/
-    type: Documentation
-  - url: https://docs.sirion.ai
-    type: APIReference
-  - url: openapi/sirion-openapi.yml
-    type: OpenAPI
-  - url: collections/sirion.postman_collection.json
-    type: PostmanCollection
-  - url: collections/sirion.opencollection.json
-    type: OpenCollection
-  description: Programmatic access to executed contracts / agreements in the
-    SirionOne repository - list, retrieve, create, update, and search contract
-    records and their linked documents. MODELED surface - Sirion states any
-    activity possible in the web application is possible via its REST APIs, but
-    exact paths are provisioned per enterprise tenant and not publicly documented.
 - aid: sirion:sirion-contract-requests-api
   name: Sirion Contract Requests API
+  description: Contract Requests (CDRs) that drive intake and authoring (MODELED).
+  humanURL: https://www.sirion.ai/integrations/
+  baseURL: https://{tenant}.sirioncloud.com
   tags:
   - Contract Requests
-  - Intake
-  - Workflow
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/sirion-contract-requests-api-openapi.yml
+  - type: Documentation
+    url: https://www.sirion.ai/integrations/
+  - type: APIReference
+    url: https://docs.sirion.ai
+  - type: PostmanCollection
+    url: collections/sirion.postman_collection.json
+  - type: OpenCollection
+    url: collections/sirion.opencollection.json
+- aid: sirion:sirion-contracts-api
+  name: Sirion Contracts API
+  description: Executed contracts / agreements in the SirionOne repository (MODELED).
   humanURL: https://www.sirion.ai/integrations/
   baseURL: https://{tenant}.sirioncloud.com
+  tags:
+  - Contracts
   properties:
-  - url: https://www.sirion.ai/integrations/
-    type: Documentation
-  - url: https://docs.sirion.ai
-    type: APIReference
-  - url: openapi/sirion-openapi.yml
-    type: OpenAPI
-  description: Create and track Contract Requests (CDRs) that drive contract
-    intake and authoring workflows. Confirmed by Sirion's SAP Ariba integration,
-    where a Contract Request reaching a workflow stage triggers a corresponding
-    Contract Workspace, with event-based and asynchronous replication. Paths
-    MODELED - not from a public reference.
+  - type: OpenAPI
+    url: openapi/sirion-contracts-api-openapi.yml
+  - type: Documentation
+    url: https://www.sirion.ai/integrations/
+  - type: APIReference
+    url: https://docs.sirion.ai
+  - type: PostmanCollection
+    url: collections/sirion.postman_collection.json
+  - type: OpenCollection
+    url: collections/sirion.opencollection.json
 - aid: sirion:sirion-metadata-clauses-api
   name: Sirion Metadata & Clauses API
-  tags:
-  - Metadata
-  - Clauses
-  - AI Extraction
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  description: Contract metadata fields and AI-extracted clauses (MODELED).
   humanURL: https://www.sirion.ai/integrations/
   baseURL: https://{tenant}.sirioncloud.com
+  tags:
+  - Metadata & Clauses
   properties:
-  - url: https://www.sirion.ai/integrations/
-    type: Documentation
-  - url: openapi/sirion-openapi.yml
-    type: OpenAPI
-  description: Read and update contract metadata fields and AI-extracted clauses -
-    the structured data (counterparty, key dates, values, clause library terms)
-    that Sirion keeps consistent across integrated CRM/ERP systems. MODELED
-    surface based on documented metadata sync behavior.
+  - type: OpenAPI
+    url: openapi/sirion-metadata-clauses-api-openapi.yml
+  - type: Documentation
+    url: https://www.sirion.ai/integrations/
+  - type: APIReference
+    url: https://docs.sirion.ai
+  - type: PostmanCollection
+    url: collections/sirion.postman_collection.json
+  - type: OpenCollection
+    url: collections/sirion.opencollection.json
 - aid: sirion:sirion-obligations-api
   name: Sirion Obligations API
+  description: Contractual obligations and performance tracking (MODELED).
+  humanURL: https://www.sirion.ai/integrations/
+  baseURL: https://{tenant}.sirioncloud.com
   tags:
   - Obligations
-  - Performance Management
-  - Compliance
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/sirion-obligations-api-openapi.yml
+  - type: Documentation
+    url: https://www.sirion.ai/integrations/
+  - type: APIReference
+    url: https://docs.sirion.ai
+  - type: PostmanCollection
+    url: collections/sirion.postman_collection.json
+  - type: OpenCollection
+    url: collections/sirion.opencollection.json
+- aid: sirion:sirion-suppliers-api
+  name: Sirion Suppliers API
+  description: Suppliers and counterparties linked to contracts (MODELED).
   humanURL: https://www.sirion.ai/integrations/
   baseURL: https://{tenant}.sirioncloud.com
-  properties:
-  - url: https://www.sirion.ai/integrations/
-    type: Documentation
-  - url: openapi/sirion-openapi.yml
-    type: OpenAPI
-  description: Manage contractual obligations and performance / compliance
-    tracking derived from agreements - list obligations, retrieve status, and
-    update fulfillment. MODELED from Sirion's documented obligation and
-    performance management capabilities; paths not publicly confirmed.
-- aid: sirion:sirion-suppliers-api
-  name: Sirion Suppliers & Counterparties API
   tags:
   - Suppliers
-  - Counterparties
-  - Supplier Management
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/sirion-suppliers-api-openapi.yml
+  - type: Documentation
+    url: https://www.sirion.ai/integrations/
+  - type: APIReference
+    url: https://docs.sirion.ai
+  - type: PostmanCollection
+    url: collections/sirion.postman_collection.json
+  - type: OpenCollection
+    url: collections/sirion.opencollection.json
+- aid: sirion:sirion-webhooks-api
+  name: Sirion Webhooks API
+  description: Outbound webhook subscriptions for event notifications (MODELED).
   humanURL: https://www.sirion.ai/integrations/
   baseURL: https://{tenant}.sirioncloud.com
-  properties:
-  - url: https://www.sirion.ai/integrations/
-    type: Documentation
-  - url: openapi/sirion-openapi.yml
-    type: OpenAPI
-  description: Manage suppliers and counterparties associated with contracts -
-    the counterparty records synchronized with procurement systems such as SAP
-    Ariba. MODELED surface based on documented supplier governance and
-    counterparty sync behavior.
-- aid: sirion:sirion-integrations-webhooks-api
-  name: Sirion Integrations & Webhooks API
   tags:
-  - Integrations
   - Webhooks
-  - Events
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.sirion.ai/integrations/
-  baseURL: https://{tenant}.sirioncloud.com
   properties:
-  - url: https://www.sirion.ai/integrations/
-    type: Documentation
-  - url: openapi/sirion-openapi.yml
-    type: OpenAPI
-  description: Configure outbound webhooks and integration flows. Sirion's
-    webhook rules support filtering on static and custom single- and
-    multi-select fields, delivering event-based, asynchronous notifications to
-    external systems (server-to-endpoint HTTP POST, not a client WebSocket).
-    Webhook capability is confirmed; exact configuration paths are MODELED.
+  - type: OpenAPI
+    url: openapi/sirion-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://www.sirion.ai/integrations/
+  - type: APIReference
+    url: https://docs.sirion.ai
+  - type: PostmanCollection
+    url: collections/sirion.postman_collection.json
+  - type: OpenCollection
+    url: collections/sirion.opencollection.json
 common:
 - type: AgenticAccess
   url: agentic-access/sirion-agentic-access.yml
