@@ -1,0 +1,24 @@
+{
+  "provider": "sirion",
+  "sources": [
+    "sirion-contract-requests-api-openapi.yml",
+    "sirion-contracts-api-openapi.yml",
+    "sirion-metadata-clauses-api-openapi.yml",
+    "sirion-obligations-api-openapi.yml",
+    "sirion-suppliers-api-openapi.yml",
+    "sirion-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "sirion-contract-requests-api-openapi.yml",
+    "sirion-contracts-api-openapi.yml",
+    "sirion-metadata-clauses-api-openapi.yml",
+    "sirion-obligations-api-openapi.yml",
+    "sirion-suppliers-api-openapi.yml",
+    "sirion-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
