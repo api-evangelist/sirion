@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sirion CLM API (Modeled) Contract Requests Metadata & Clauses API",
+    "version": "1.0-modeled"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://your-org.sirioncloud.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata & Clauses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get contract metadata (MODELED)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sirioncloud.com/contracts/:contractId/metadata",
+            "params": [
+              {
+                "name": "contractId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the contract (MODELED)."
+              }
+            ]
+          },
+          "docs": "Get contract metadata (MODELED)"
+        },
+        {
+          "info": {
+            "name": "Update contract metadata (MODELED)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{tenant}.sirioncloud.com/contracts/:contractId/metadata",
+            "params": [
+              {
+                "name": "contractId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the contract (MODELED)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update contract metadata (MODELED)"
+        },
+        {
+          "info": {
+            "name": "List AI-extracted clauses for a contract (MODELED)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sirioncloud.com/contracts/:contractId/clauses",
+            "params": [
+              {
+                "name": "contractId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the contract (MODELED)."
+              }
+            ]
+          },
+          "docs": "List AI-extracted clauses for a contract (MODELED)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,877 @@
+{
+  "item": [
+    {
+      "id": "39741e37-6ddc-49ac-959e-ea7474317680",
+      "name": "Contracts",
+      "description": {
+        "content": "Executed contracts / agreements in the SirionOne repository (MODELED).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "931aab9b-9497-4317-b746-8224c238ab83",
+          "name": "List contracts (MODELED)",
+          "request": {
+            "name": "List contracts (MODELED)",
+            "description": {
+              "content": "Lists contracts in the SirionOne repository. MODELED path.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contracts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination (MODELED)."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "25",
+                  "description": "Number of items per page (MODELED)."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd987dcf-3065-4d55-b55b-aeb26b11c149",
+              "name": "A page of contract records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"title\": \"string\",\n      \"status\": \"string\",\n      \"counterparty\": \"string\",\n      \"effectiveDate\": \"1981-01-23\",\n      \"expiryDate\": \"1992-07-03\",\n      \"value\": 4514.694665789868,\n      \"currency\": \"string\",\n      \"id\": \"string\",\n      \"createdAt\": \"1980-03-04T18:16:44.905Z\"\n    },\n    {\n      \"title\": \"string\",\n      \"status\": \"string\",\n      \"counterparty\": \"string\",\n      \"effectiveDate\": \"1962-09-22\",\n      \"expiryDate\": \"1952-08-16\",\n      \"value\": 5674.317965274002,\n      \"currency\": \"string\",\n      \"id\": \"string\",\n      \"createdAt\": \"1987-06-04T14:08:18.534Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9ae764a-da38-42da-9b02-368337ba76e3",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e1abb35-ce0d-4cb4-8ead-bb2fc6b2f14b",
+          "name": "Create a contract (MODELED)",
+          "request": {
+            "name": "Create a contract (MODELED)",
+            "description": {
+              "content": "Creates a contract record. MODELED path and schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contracts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4cc2161-a5f3-48c7-8dc2-f1420f52b57b",
+              "name": "The created contract.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"id\": \"string\",\n  \"createdAt\": \"2000-05-05T18:38:34.033Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39a61688-43fc-4e11-b7c5-4dc923b3c614",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22112490-b602-4ebe-af9b-931c3deb932d",
+          "name": "Retrieve a contract (MODELED)",
+          "request": {
+            "name": "Retrieve a contract (MODELED)",
+            "description": {},
+            "url": {
+              "path": [
+                "contracts",
+                ":contractId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contractId",
+                  "description": "(Required) The ID of the contract (MODELED)."
+                },
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12cda6ba-6645-425c-89a9-6b65e79792d2",
+              "name": "The requested contract.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts",
+                    ":contractId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contractId",
+                      "description": "(Required) The ID of the contract (MODELED)."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"id\": \"string\",\n  \"createdAt\": \"2000-05-05T18:38:34.033Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5eab2804-e96e-4f70-9abb-e77929b4bde7",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts",
+                    ":contractId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contractId",
+                      "description": "(Required) The ID of the contract (MODELED)."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d07be6cf-c4c2-4c01-a4a0-469b1bce3bb5",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts",
+                    ":contractId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contractId",
+                      "description": "(Required) The ID of the contract (MODELED)."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27c84df3-302f-4109-8bea-493191828c99",
+          "name": "Update a contract (MODELED)",
+          "request": {
+            "name": "Update a contract (MODELED)",
+            "description": {},
+            "url": {
+              "path": [
+                "contracts",
+                ":contractId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "contractId",
+                  "description": "(Required) The ID of the contract (MODELED)."
+                },
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4eaef9b0-f5d2-4812-9175-261c400c6780",
+              "name": "The updated contract.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts",
+                    ":contractId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contractId",
+                      "description": "(Required) The ID of the contract (MODELED)."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"id\": \"string\",\n  \"createdAt\": \"2000-05-05T18:38:34.033Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42da03f2-85d9-4bef-aa74-6bf666da223d",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts",
+                    ":contractId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contractId",
+                      "description": "(Required) The ID of the contract (MODELED)."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2bd1bf54-c455-40f3-b8b9-0a805b7242f6",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contracts",
+                    ":contractId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "contractId",
+                      "description": "(Required) The ID of the contract (MODELED)."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"effectiveDate\": \"<date>\",\n  \"expiryDate\": \"<date>\",\n  \"value\": \"<number>\",\n  \"currency\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your organization's Sirion tenant subdomain.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-org",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sirioncloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://your-org.sirioncloud.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4b98b03c-e57a-4d40-a7d3-0fd57362bff3",
+    "name": "Sirion CLM API (Modeled) Contract Requests Contracts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "IMPORTANT - MODELED DOCUMENT. This OpenAPI definition is a MODELED representation of the Sirion (SirionLabs) CLM \"Business API & Integrations\" surface. It is NOT copied from an official public reference. Sirion's API reference is available only to authenticated Sirion users (via My Account -> Resources -> Help Guide in the tenant application, and at docs.sirion.ai behind login), and API access is provisioned per enterprise tenant.\n\nWhat is publicly CONFIRMED and reflected here: (1) SirionOne is RESTful and \"any activity possible in the web application is possible via the APIs\"; (2) authentication uses OAuth 2.0 client credentials for Sirion B2B APIs (an OAuth Client Id and OAuth Client Secret generated by a tenant admin under Admin 2.0 -> Business API & Integrations / OAuth Client Setup); (3) Sirion supports configurable outbound webhooks with field-based filtering and event-based, asynchronous processing; (4) core CLM entities include contracts, contract requests (CDRs), metadata and clauses, obligations, and suppliers / counterparties.\n\nWhat is MODELED and NOT publicly confirmable: all endpoint paths, the exact request/response schemas, the OAuth token URL, and the per-tenant host. The base server below uses a `tenant` variable on the confirmed product domain sirioncloud.com; substitute your organization's actual Sirion host. Do not treat these paths as authoritative - obtain the real reference from your Sirion tenant.\n\nContact Support:\n Name: SirionLabs",
+      "type": "text/plain"
+    }
+  }
+}

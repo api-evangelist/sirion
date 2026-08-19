@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sirion CLM API (Modeled) Contract Requests Contracts API",
+    "version": "1.0-modeled"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://your-org.sirioncloud.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Contracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List contracts (MODELED)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sirioncloud.com/contracts",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination (MODELED)."
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page (MODELED)."
+              }
+            ]
+          },
+          "docs": "Lists contracts in the SirionOne repository. MODELED path."
+        },
+        {
+          "info": {
+            "name": "Create a contract (MODELED)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sirioncloud.com/contracts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a contract record. MODELED path and schema."
+        },
+        {
+          "info": {
+            "name": "Retrieve a contract (MODELED)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sirioncloud.com/contracts/:contractId",
+            "params": [
+              {
+                "name": "contractId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the contract (MODELED)."
+              }
+            ]
+          },
+          "docs": "Retrieve a contract (MODELED)"
+        },
+        {
+          "info": {
+            "name": "Update a contract (MODELED)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{tenant}.sirioncloud.com/contracts/:contractId",
+            "params": [
+              {
+                "name": "contractId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the contract (MODELED)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a contract (MODELED)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

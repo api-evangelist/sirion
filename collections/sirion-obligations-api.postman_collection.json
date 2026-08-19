@@ -1,0 +1,471 @@
+{
+  "item": [
+    {
+      "id": "33769e95-2b9d-46f4-ae56-8155d8e17f70",
+      "name": "Obligations",
+      "description": {
+        "content": "Contractual obligations and performance tracking (MODELED).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e1a62594-7ea1-4cc2-8518-b2a5fe83847b",
+          "name": "List obligations (MODELED)",
+          "request": {
+            "name": "List obligations (MODELED)",
+            "description": {
+              "content": "Lists contractual obligations and their status. MODELED path.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "obligations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contractId",
+                  "value": "<string>",
+                  "description": "Filter obligations by contract."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce3a8056-7a31-4aed-8788-22fad7d40e52",
+              "name": "A list of obligations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "obligations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contractId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"contractId\": \"string\",\n      \"description\": \"string\",\n      \"owner\": \"string\",\n      \"dueDate\": \"1987-10-07\",\n      \"status\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"contractId\": \"string\",\n      \"description\": \"string\",\n      \"owner\": \"string\",\n      \"dueDate\": \"1988-04-12\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63429ef9-361c-484b-a6b8-04a26fab1302",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "obligations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contractId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "700d7749-bd95-4561-9620-8b3222ae03b0",
+          "name": "Update obligation status (MODELED)",
+          "request": {
+            "name": "Update obligation status (MODELED)",
+            "description": {},
+            "url": {
+              "path": [
+                "obligations",
+                ":obligationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "obligationId",
+                  "description": "(Required) The ID of the obligation."
+                },
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"contractId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "482d54c8-86db-471f-b105-0950c6eaa240",
+              "name": "The updated obligation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "obligations",
+                    ":obligationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "obligationId",
+                      "description": "(Required) The ID of the obligation."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"contractId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"contractId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"status\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66fb04c9-c1a7-4090-b721-5e762f6cfa01",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "obligations",
+                    ":obligationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "obligationId",
+                      "description": "(Required) The ID of the obligation."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"contractId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1eafa7ed-e432-4619-9045-95294535985a",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "obligations",
+                    ":obligationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "obligationId",
+                      "description": "(Required) The ID of the obligation."
+                    },
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"contractId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your organization's Sirion tenant subdomain.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-org",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sirioncloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://your-org.sirioncloud.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ccbd9617-5e9c-4519-9ff2-91cae4380026",
+    "name": "Sirion CLM API (Modeled) Contract Requests Obligations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "IMPORTANT - MODELED DOCUMENT. This OpenAPI definition is a MODELED representation of the Sirion (SirionLabs) CLM \"Business API & Integrations\" surface. It is NOT copied from an official public reference. Sirion's API reference is available only to authenticated Sirion users (via My Account -> Resources -> Help Guide in the tenant application, and at docs.sirion.ai behind login), and API access is provisioned per enterprise tenant.\n\nWhat is publicly CONFIRMED and reflected here: (1) SirionOne is RESTful and \"any activity possible in the web application is possible via the APIs\"; (2) authentication uses OAuth 2.0 client credentials for Sirion B2B APIs (an OAuth Client Id and OAuth Client Secret generated by a tenant admin under Admin 2.0 -> Business API & Integrations / OAuth Client Setup); (3) Sirion supports configurable outbound webhooks with field-based filtering and event-based, asynchronous processing; (4) core CLM entities include contracts, contract requests (CDRs), metadata and clauses, obligations, and suppliers / counterparties.\n\nWhat is MODELED and NOT publicly confirmable: all endpoint paths, the exact request/response schemas, the OAuth token URL, and the per-tenant host. The base server below uses a `tenant` variable on the confirmed product domain sirioncloud.com; substitute your organization's actual Sirion host. Do not treat these paths as authoritative - obtain the real reference from your Sirion tenant.\n\nContact Support:\n Name: SirionLabs",
+      "type": "text/plain"
+    }
+  }
+}

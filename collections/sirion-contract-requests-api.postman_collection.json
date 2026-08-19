@@ -1,0 +1,367 @@
+{
+  "item": [
+    {
+      "id": "6a7ef20a-3d10-4353-bf54-3a12058b8e5b",
+      "name": "Contract Requests",
+      "description": {
+        "content": "Contract Requests (CDRs) that drive intake and authoring (MODELED).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9e826321-a156-40c3-9555-a85762cfe55b",
+          "name": "List contract requests (MODELED)",
+          "request": {
+            "name": "List contract requests (MODELED)",
+            "description": {
+              "content": "Lists Contract Requests (CDRs). Confirmed conceptually by Sirion's SAP Ariba integration; path MODELED.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contract-requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b6dc062-9a9b-4319-9e5e-802cb6e5a9b0",
+              "name": "A page of contract requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contract-requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"title\": \"string\",\n      \"requestType\": \"string\",\n      \"counterparty\": \"string\",\n      \"requestedBy\": \"string\",\n      \"metadata\": {\n        \"key_0\": 4030\n      },\n      \"id\": \"string\",\n      \"stage\": \"string\",\n      \"createdAt\": \"1949-12-24T01:13:19.623Z\"\n    },\n    {\n      \"title\": \"string\",\n      \"requestType\": \"string\",\n      \"counterparty\": \"string\",\n      \"requestedBy\": \"string\",\n      \"metadata\": {\n        \"key_0\": 3179.402564622521,\n        \"key_1\": 1024,\n        \"key_2\": false\n      },\n      \"id\": \"string\",\n      \"stage\": \"string\",\n      \"createdAt\": \"1997-05-05T16:58:48.617Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2388f29-a51f-4509-b429-f2b9b4e2bba2",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contract-requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2dbd59e-0223-4179-b7d9-7d8b49aee184",
+          "name": "Create a contract request (MODELED)",
+          "request": {
+            "name": "Create a contract request (MODELED)",
+            "description": {
+              "content": "Creates a Contract Request that drives intake / authoring workflow. Sirion documents event-based, asynchronous replication of CDRs. MODELED.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contract-requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"requestType\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"requestedBy\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 5539\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41a6b983-cb05-4c1d-8833-0ba2a707bffa",
+              "name": "The created contract request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contract-requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"requestType\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"requestedBy\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"requestType\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"requestedBy\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": true\n  },\n  \"id\": \"string\",\n  \"stage\": \"string\",\n  \"createdAt\": \"2009-07-16T00:43:03.100Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d71cca33-11e6-4109-b400-25eafa9e7fec",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contract-requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"requestType\": \"<string>\",\n  \"counterparty\": \"<string>\",\n  \"requestedBy\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your organization's Sirion tenant subdomain.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-org",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sirioncloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://your-org.sirioncloud.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c69ed9d2-9d11-4a22-9c17-bad9611da39d",
+    "name": "Sirion CLM API (Modeled) Contract Requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "IMPORTANT - MODELED DOCUMENT. This OpenAPI definition is a MODELED representation of the Sirion (SirionLabs) CLM \"Business API & Integrations\" surface. It is NOT copied from an official public reference. Sirion's API reference is available only to authenticated Sirion users (via My Account -> Resources -> Help Guide in the tenant application, and at docs.sirion.ai behind login), and API access is provisioned per enterprise tenant.\n\nWhat is publicly CONFIRMED and reflected here: (1) SirionOne is RESTful and \"any activity possible in the web application is possible via the APIs\"; (2) authentication uses OAuth 2.0 client credentials for Sirion B2B APIs (an OAuth Client Id and OAuth Client Secret generated by a tenant admin under Admin 2.0 -> Business API & Integrations / OAuth Client Setup); (3) Sirion supports configurable outbound webhooks with field-based filtering and event-based, asynchronous processing; (4) core CLM entities include contracts, contract requests (CDRs), metadata and clauses, obligations, and suppliers / counterparties.\n\nWhat is MODELED and NOT publicly confirmable: all endpoint paths, the exact request/response schemas, the OAuth token URL, and the per-tenant host. The base server below uses a `tenant` variable on the confirmed product domain sirioncloud.com; substitute your organization's actual Sirion host. Do not treat these paths as authoritative - obtain the real reference from your Sirion tenant.\n\nContact Support:\n Name: SirionLabs",
+      "type": "text/plain"
+    }
+  }
+}

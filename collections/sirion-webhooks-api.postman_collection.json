@@ -1,0 +1,364 @@
+{
+  "item": [
+    {
+      "id": "f2ddd155-dec5-4ceb-8957-53439dd90caf",
+      "name": "Webhooks",
+      "description": {
+        "content": "Outbound webhook subscriptions for event notifications (MODELED).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9cf5544f-df6e-48ff-a461-81aebead2fa8",
+          "name": "List webhook subscriptions (MODELED)",
+          "request": {
+            "name": "List webhook subscriptions (MODELED)",
+            "description": {
+              "content": "Lists configured outbound webhook rules. Sirion webhook rules support filtering on static and custom single- and multi-select fields. MODELED path.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "976ef812-b4ef-474a-97f2-d02b60488969",
+              "name": "A list of webhook subscriptions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"url\": \"https://FY.enkutoSTKh78teUvFxWP4ZR8hQ5\",\n      \"event\": \"string\",\n      \"filters\": [\n        {\n          \"key_0\": 7605,\n          \"key_1\": 5240,\n          \"key_2\": 7424\n        },\n        {\n          \"key_0\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"url\": \"http://Keadgo.muyaBevL0FLDrE6I5WUi\",\n      \"event\": \"string\",\n      \"filters\": [\n        {\n          \"key_0\": 5507.6692665446535,\n          \"key_1\": true,\n          \"key_2\": \"string\"\n        },\n        {\n          \"key_0\": false\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4c43ba6-e1ec-4246-9d35-2e9d42563e63",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10bd5501-dd85-4a40-8ec0-aefd1c81ae6c",
+          "name": "Create a webhook subscription (MODELED)",
+          "request": {
+            "name": "Create a webhook subscription (MODELED)",
+            "description": {},
+            "url": {
+              "path": [
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your organization's Sirion tenant subdomain.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"event\": \"<string>\",\n  \"filters\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 178.42202954939103\n    },\n    {\n      \"key_0\": false,\n      \"key_1\": 2040.6804465418238\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aa6a5fb0-07c5-4552-bd69-cc02672ba9c1",
+              "name": "The created webhook subscription.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"event\": \"<string>\",\n  \"filters\": [\n    {\n      \"key_0\": 2067.3500108533103\n    },\n    {\n      \"key_0\": true,\n      \"key_1\": 1263.3602127107513\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"event\": \"<string>\",\n  \"filters\": [\n    {\n      \"key_0\": 2067.3500108533103\n    },\n    {\n      \"key_0\": true,\n      \"key_1\": 1263.3602127107513\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91959d8d-268e-4101-be48-05c8b9e4a8d3",
+              "name": "Missing or invalid OAuth access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your organization's Sirion tenant subdomain.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"event\": \"<string>\",\n  \"filters\": [\n    {\n      \"key_0\": 2067.3500108533103\n    },\n    {\n      \"key_0\": true,\n      \"key_1\": 1263.3602127107513\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your organization's Sirion tenant subdomain.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-org",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sirioncloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://your-org.sirioncloud.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f97f39f5-7d00-4480-9452-22eb2dba1ccd",
+    "name": "Sirion CLM API (Modeled) Contract Requests Webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "IMPORTANT - MODELED DOCUMENT. This OpenAPI definition is a MODELED representation of the Sirion (SirionLabs) CLM \"Business API & Integrations\" surface. It is NOT copied from an official public reference. Sirion's API reference is available only to authenticated Sirion users (via My Account -> Resources -> Help Guide in the tenant application, and at docs.sirion.ai behind login), and API access is provisioned per enterprise tenant.\n\nWhat is publicly CONFIRMED and reflected here: (1) SirionOne is RESTful and \"any activity possible in the web application is possible via the APIs\"; (2) authentication uses OAuth 2.0 client credentials for Sirion B2B APIs (an OAuth Client Id and OAuth Client Secret generated by a tenant admin under Admin 2.0 -> Business API & Integrations / OAuth Client Setup); (3) Sirion supports configurable outbound webhooks with field-based filtering and event-based, asynchronous processing; (4) core CLM entities include contracts, contract requests (CDRs), metadata and clauses, obligations, and suppliers / counterparties.\n\nWhat is MODELED and NOT publicly confirmable: all endpoint paths, the exact request/response schemas, the OAuth token URL, and the per-tenant host. The base server below uses a `tenant` variable on the confirmed product domain sirioncloud.com; substitute your organization's actual Sirion host. Do not treat these paths as authoritative - obtain the real reference from your Sirion tenant.\n\nContact Support:\n Name: SirionLabs",
+      "type": "text/plain"
+    }
+  }
+}
