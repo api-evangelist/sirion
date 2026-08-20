@@ -32,6 +32,17 @@ tags:
 - Contract Lifecycle Management
 - CLM
 - Contracts
+- Artificial Intelligence
+- Enterprise
+- Legal
+- Agreements
+- Supplier Management
+- Obligations
+tags_raw:
+- Contract Management
+- Contract Lifecycle Management
+- CLM
+- Contracts
 - AI
 - Enterprise
 - Legal
@@ -138,6 +149,8 @@ apis:
   humanURL: https://www.sirion.ai/integrations/
   baseURL: https://{tenant}.sirioncloud.com
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
