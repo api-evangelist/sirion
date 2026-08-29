@@ -1,0 +1,54 @@
+slug: sirion
+provider: Sirion
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Contracts
+  spec_file: sirion-contracts-api-openapi.yml
+  capability_id: BC-150.10
+  capability_id_l1: BC-150
+  capability_name: Contract Management
+  confidence: 0.9
+  evidence: GET /contracts 'List contracts'; POST /contracts 'Create a contract'; PATCH /contracts/{contractId}
+    'Update a contract'
+  reason: Direct CRUD over contract records in an enterprise CLM platform — contract lifecycle from drafting
+    to closure.
+- tag: Contract Requests
+  spec_file: sirion-contract-requests-api-openapi.yml
+  capability_id: BC-150.10
+  capability_id_l1: BC-150
+  capability_name: Contract Management
+  confidence: 0.78
+  evidence: POST /contract-requests 'Create a contract request (MODELED)'; schema ContractRequestInput
+  reason: Intake of requests to initiate a contract is the front end of the contract lifecycle in this
+    CLM platform, mapping to Contract Management.
+- tag: Metadata & Clauses
+  spec_file: sirion-metadata-clauses-api-openapi.yml
+  capability_id: BC-150.10
+  capability_id_l1: BC-150
+  capability_name: Contract Management
+  confidence: 0.78
+  evidence: GET /contracts/{contractId}/clauses 'List AI-extracted clauses for a contract (MODELED)';
+    schema Clause
+  reason: Contract metadata and clause extraction are contract-repository functions within the contract
+    lifecycle, so Contract Management is the fit.
+- tag: Obligations
+  spec_file: sirion-obligations-api-openapi.yml
+  capability_id: BC-150.10
+  capability_id_l1: BC-150
+  capability_name: Contract Management
+  confidence: 0.72
+  evidence: GET /obligations 'List obligations'; PATCH /obligations/{obligationId} 'Update obligation
+    status'
+  reason: Tracking and updating contractual obligation status is post-signature contract administration
+    in a CLM platform; Contract Management is the closest supported capability.

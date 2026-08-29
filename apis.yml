@@ -176,6 +176,9 @@ apis:
   - type: OpenCollection
     url: collections/sirion.opencollection.json
 common:
+- type: CapabilityMap
+  url: capabilities/sirion-capability-edges.yml
+  name: Sirion Business Capability Map
 - type: AgenticAccess
   url: agentic-access/sirion-agentic-access.yml
 - type: Authentication
