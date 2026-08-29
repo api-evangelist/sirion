@@ -13,6 +13,18 @@ description: Sirion (SirionLabs) is an AI-native enterprise Contract Lifecycle
   provisioned per tenant and the API reference is available to authenticated
   Sirion users. Endpoint paths and schemas in this entry are MODELED from public
   product references, not copied from a public reference document.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
