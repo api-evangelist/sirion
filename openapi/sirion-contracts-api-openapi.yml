@@ -106,6 +106,19 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid OAuth access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     PageSize:
       name: pageSize
@@ -115,13 +128,6 @@ components:
       schema:
         type: integer
         default: 25
-    ContractId:
-      name: contractId
-      in: path
-      required: true
-      description: The ID of the contract (MODELED).
-      schema:
-        type: string
     Page:
       name: page
       in: query
@@ -130,19 +136,13 @@ components:
       schema:
         type: integer
         default: 1
-  responses:
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid OAuth access token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    ContractId:
+      name: contractId
+      in: path
+      required: true
+      description: The ID of the contract (MODELED).
+      schema:
+        type: string
   schemas:
     Error:
       type: object

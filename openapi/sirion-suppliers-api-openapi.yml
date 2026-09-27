@@ -60,13 +60,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid OAuth access token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -86,6 +79,13 @@ components:
         externalId:
           type: string
           description: Identifier in a synced procurement system (e.g. SAP Ariba).
+  responses:
+    Unauthorized:
+      description: Missing or invalid OAuth access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

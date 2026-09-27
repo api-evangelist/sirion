@@ -62,13 +62,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid OAuth access token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -77,19 +70,6 @@ components:
           type: string
         message:
           type: string
-    ContractRequest:
-      allOf:
-      - $ref: '#/components/schemas/ContractRequestInput'
-      - type: object
-        properties:
-          id:
-            type: string
-          stage:
-            type: string
-            description: Workflow stage of the request.
-          createdAt:
-            type: string
-            format: date-time
     ContractRequestInput:
       type: object
       description: MODELED contract request (CDR) payload.
@@ -105,6 +85,26 @@ components:
         metadata:
           type: object
           additionalProperties: true
+    ContractRequest:
+      allOf:
+      - $ref: '#/components/schemas/ContractRequestInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          stage:
+            type: string
+            description: Workflow stage of the request.
+          createdAt:
+            type: string
+            format: date-time
+  responses:
+    Unauthorized:
+      description: Missing or invalid OAuth access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2
