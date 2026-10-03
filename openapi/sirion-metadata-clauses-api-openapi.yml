@@ -81,15 +81,23 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  parameters:
+    ContractId:
+      name: contractId
+      in: path
+      required: true
+      description: The ID of the contract (MODELED).
+      schema:
+        type: string
   responses:
-    Unauthorized:
-      description: Missing or invalid OAuth access token.
+    NotFound:
+      description: The requested resource was not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
+    Unauthorized:
+      description: Missing or invalid OAuth access token.
       content:
         application/json:
           schema:
@@ -107,6 +115,13 @@ components:
           type: string
         confidence:
           type: number
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
     Metadata:
       type: object
       description: MODELED contract metadata field bag.
@@ -116,21 +131,6 @@ components:
         fields:
           type: object
           additionalProperties: true
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-  parameters:
-    ContractId:
-      name: contractId
-      in: path
-      required: true
-      description: The ID of the contract (MODELED).
-      schema:
-        type: string
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

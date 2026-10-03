@@ -106,51 +106,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid OAuth access token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  parameters:
-    PageSize:
-      name: pageSize
-      in: query
-      required: false
-      description: Number of items per page (MODELED).
-      schema:
-        type: integer
-        default: 25
-    Page:
-      name: page
-      in: query
-      required: false
-      description: Page number for pagination (MODELED).
-      schema:
-        type: integer
-        default: 1
-    ContractId:
-      name: contractId
-      in: path
-      required: true
-      description: The ID of the contract (MODELED).
-      schema:
-        type: string
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
     ContractInput:
       type: object
       description: MODELED contract payload - not from a public reference.
@@ -182,6 +138,50 @@ components:
           createdAt:
             type: string
             format: date-time
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+  parameters:
+    ContractId:
+      name: contractId
+      in: path
+      required: true
+      description: The ID of the contract (MODELED).
+      schema:
+        type: string
+    PageSize:
+      name: pageSize
+      in: query
+      required: false
+      description: Number of items per page (MODELED).
+      schema:
+        type: integer
+        default: 25
+    Page:
+      name: page
+      in: query
+      required: false
+      description: Page number for pagination (MODELED).
+      schema:
+        type: integer
+        default: 1
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid OAuth access token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2
