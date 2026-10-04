@@ -107,6 +107,23 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    Contract:
+      allOf:
+      - $ref: '#/components/schemas/ContractInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          createdAt:
+            type: string
+            format: date-time
     ContractInput:
       type: object
       description: MODELED contract payload - not from a public reference.
@@ -127,23 +144,6 @@ components:
         value:
           type: number
         currency:
-          type: string
-    Contract:
-      allOf:
-      - $ref: '#/components/schemas/ContractInput'
-      - type: object
-        properties:
-          id:
-            type: string
-          createdAt:
-            type: string
-            format: date-time
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
           type: string
   parameters:
     ContractId:

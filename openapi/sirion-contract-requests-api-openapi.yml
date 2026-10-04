@@ -63,13 +63,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
     ContractRequestInput:
       type: object
       description: MODELED contract request (CDR) payload.
@@ -85,6 +78,13 @@ components:
         metadata:
           type: object
           additionalProperties: true
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
     ContractRequest:
       allOf:
       - $ref: '#/components/schemas/ContractRequestInput'

@@ -81,6 +81,35 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    Metadata:
+      type: object
+      description: MODELED contract metadata field bag.
+      properties:
+        contractId:
+          type: string
+        fields:
+          type: object
+          additionalProperties: true
+    Clause:
+      type: object
+      description: MODELED AI-extracted clause.
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        text:
+          type: string
+        confidence:
+          type: number
   parameters:
     ContractId:
       name: contractId
@@ -102,35 +131,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  schemas:
-    Clause:
-      type: object
-      description: MODELED AI-extracted clause.
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        text:
-          type: string
-        confidence:
-          type: number
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-    Metadata:
-      type: object
-      description: MODELED contract metadata field bag.
-      properties:
-        contractId:
-          type: string
-        fields:
-          type: object
-          additionalProperties: true
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

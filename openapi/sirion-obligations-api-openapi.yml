@@ -105,14 +105,14 @@ components:
           type: string
           description: Fulfillment status (e.g. open, met, breached).
   responses:
-    Unauthorized:
-      description: Missing or invalid OAuth access token.
+    NotFound:
+      description: The requested resource was not found.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
+    Unauthorized:
+      description: Missing or invalid OAuth access token.
       content:
         application/json:
           schema:
