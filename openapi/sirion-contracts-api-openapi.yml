@@ -107,23 +107,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          type: string
-        message:
-          type: string
-    Contract:
-      allOf:
-      - $ref: '#/components/schemas/ContractInput'
-      - type: object
-        properties:
-          id:
-            type: string
-          createdAt:
-            type: string
-            format: date-time
     ContractInput:
       type: object
       description: MODELED contract payload - not from a public reference.
@@ -145,14 +128,24 @@ components:
           type: number
         currency:
           type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    Contract:
+      allOf:
+      - $ref: '#/components/schemas/ContractInput'
+      - type: object
+        properties:
+          id:
+            type: string
+          createdAt:
+            type: string
+            format: date-time
   parameters:
-    ContractId:
-      name: contractId
-      in: path
-      required: true
-      description: The ID of the contract (MODELED).
-      schema:
-        type: string
     PageSize:
       name: pageSize
       in: query
@@ -161,6 +154,13 @@ components:
       schema:
         type: integer
         default: 25
+    ContractId:
+      name: contractId
+      in: path
+      required: true
+      description: The ID of the contract (MODELED).
+      schema:
+        type: string
     Page:
       name: page
       in: query
